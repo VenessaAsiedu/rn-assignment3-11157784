@@ -1,7 +1,21 @@
- import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+ import React, { useState } from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [tasks, setTasks] = useState([
+    { task: 'Mobile App Development', key: '1'},
+    { task: 'Morning Yoga', key: '2'},
+    { task: 'Preparing Dinner', key: '3'},
+    { task: 'Science Project', key: '4'},
+    { task: 'Watering Flowers', key: '5'},
+    { task: 'Creating Database', key: '6'},
+    { task: 'Reading Newspapers', key: '7'},
+  ]);
+  const renderTaskItem = ({ item }) => (
+    <View style={styles.taskItem}>
+      <Text style={styles.taskTitle}>{item.task}</Text>
+    </View>
+  );
   return (
     <View style={styles.container}>
     <View style={styles.header}>
@@ -32,8 +46,13 @@ export default function App() {
       <View>
       <Text style={styles.ongoing}>Ongoing Tasks</Text>
       </View> 
+      <FlatList
+        data={tasks}
+        renderItem={renderTaskItem}
+        keyExtractor={item => item.key}
+      />
     </View>
-  );
+  );   
 }
 
 const styles = StyleSheet.create({
@@ -99,5 +118,26 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginTop: 10,
+  },
+  taskItem: {
+    padding: 10,
+    backgroundColor: 'white',
+    marginBottom: 10,
+    borderRadius: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  taskTitle: {
+    fontSize: 16,
+  },
+  item: {
+    marginTop: 20,
+    padding: 30,
+    backgroundColor: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 });
