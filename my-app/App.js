@@ -13,10 +13,12 @@ export default function App() {
       <View style={styles.imageContainer}>
         <View style={styles.imageWithTextContainer}>
           <Text style={styles.imageText}>Exercise</Text>
+          <Text style={styles.subText}>15 Tasks</Text>
           <Image source={require('./assets/young woman working online.png')} style={styles.categoryImage} />
         </View>
         <View style={styles.imageWithTextContainer}>
           <Text style={styles.imageText}>Study</Text>
+          <Text style={styles.subText}>15 Tasks</Text>
           <Image source={require('./assets/young woman working at desk.png')} style={styles.categoryImage} />
         </View>
       </View>
@@ -64,6 +66,10 @@ const styles = StyleSheet.create({
    imageText: {
     fontSize: 16,
     fontWeight: 'bold',
+    marginBottom: 5,
+   },
+   subText: {
+    fontSize: 14,
     marginBottom: 5,
    },
   categoryImage: {
