@@ -12,14 +12,18 @@ export default function App() {
       </View>
       <View style={styles.imageContainer}>
         <View style={styles.imageWithTextContainer}>
-          <Text style={styles.imageText}>Exercise</Text>
+        <View style={styles.imageBackground}>
+        <Text style={styles.imageText}>Exercise</Text>
           <Text style={styles.subText}>15 Tasks</Text>
           <Image source={require('./assets/young woman working online.png')} style={styles.categoryImage} />
         </View>
+        </View>
         <View style={styles.imageWithTextContainer}>
+        <View style={styles.imageBackground}>
           <Text style={styles.imageText}>Study</Text>
           <Text style={styles.subText}>15 Tasks</Text>
           <Image source={require('./assets/young woman working at desk.png')} style={styles.categoryImage} />
+          </View>
         </View>
       </View>
 
@@ -58,6 +62,9 @@ const styles = StyleSheet.create({
   imageContainer: {
     flexDirection: 'row',
     marginTop: 20,
+  },
+  imageBackground: {
+    backgroundColor: 'white',
   },
   imageWithTextContainer: {
     alignItems: 'left',
