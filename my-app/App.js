@@ -1,66 +1,69 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   const [tasks, setTasks] = useState([
-    { task: 'Mobile App Development', key: '1'},
-    { task: 'Morning Yoga', key: '2'},
-    { task: 'Preparing Dinner', key: '3'},
-    { task: 'Science Project', key: '4'},
-    { task: 'Watering Flowers', key: '5'},
-    { task: 'Creating Database', key: '6'},
-    { task: 'Reading Newspapers', key: '7'},
+    { task: 'Mobile App Development', key: '1' },
+    { task: 'Morning Yoga', key: '2' },
+    { task: 'Preparing Dinner', key: '3' },
+    { task: 'Science Project', key: '4' },
+    { task: 'Watering Flowers', key: '5' },
+    { task: 'Creating Database', key: '6' },
+    { task: 'Reading Newspapers', key: '7' },
+    { task: 'Watering Flowers', key: '8' },
+    { task: 'Creating Database', key: '9' },
+    { task: 'Reading Newspapers', key: '10' },
   ]);
+
   const renderTaskItem = ({ item }) => (
     <View style={styles.taskItem}>
       <Text style={styles.taskTitle}>{item.task}</Text>
     </View>
   );
+
   return (
     <View style={styles.container}>
-    <View style={styles.header}>
-    <Text style={styles.boldText}>Hello , Devs</Text>
-      <Image source={require('./assets/Icon.jpg')} style={styles.icon} />
-    </View>
-    <Text style={styles.text}>15 tasks today</Text>
+      <View style={styles.header}>
+        <Text style={styles.boldText}>Hello, Devs</Text>
+        <Image source={require('./assets/Icon.jpg')} style={styles.icon} />
+      </View>
+      <Text style={styles.text}>15 tasks today</Text>
       <Image source={require('./assets/Search.png')} style={styles.image} />
       <View style={styles.categoriesContainer}>
         <Text style={styles.categoriesText}>Categories</Text>
       </View>
       <View style={styles.imageContainer}>
         <View style={styles.imageWithTextContainer}>
-        <View style={styles.imageBackground}>
-        <Text style={styles.imageText}>Exercise</Text>
-          <Text style={styles.subText}>15 Tasks</Text>
-          <Image source={require('./assets/young woman working online.png')} style={styles.categoryImage} />
-        </View>
+          <View style={styles.imageBackground}>
+            <Text style={styles.imageText}>Exercise</Text>
+            <Text style={styles.subText}>15 Tasks</Text>
+            <Image source={require('./assets/young woman working online.png')} style={styles.categoryImage} />
+          </View>
         </View>
         <View style={styles.imageWithTextContainer}>
-        <View style={styles.imageBackground}>
-          <Text style={styles.imageText}>Study</Text>
-          <Text style={styles.subText}>15 Tasks</Text>
-          <Image source={require('./assets/young woman working at desk.png')} style={styles.categoryImage} />
+          <View style={styles.imageBackground}>
+            <Text style={styles.imageText}>Study</Text>
+            <Text style={styles.subText}>15 Tasks</Text>
+            <Image source={require('./assets/young woman working at desk.png')} style={styles.categoryImage} />
           </View>
         </View>
       </View>
-      <View>
       <Text style={styles.ongoing}>Ongoing Tasks</Text>
-      </View> 
-      <FlatList
-        data={tasks}
-        renderItem={renderTaskItem}
-        keyExtractor={item => item.key}
-      />
+      <View style={styles.taskListContainer}>
+        <FlatList
+          data={tasks}
+          renderItem={renderTaskItem}
+          keyExtractor={item => item.key}
+        />
+      </View>
     </View>
-  );   
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F7F0E8',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
     padding: 20,
   },
   header: {
@@ -101,15 +104,15 @@ const styles = StyleSheet.create({
     alignItems: 'left',
     marginRight: 10,
   },
-   imageText: {
+  imageText: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
-   },
-   subText: {
+  },
+  subText: {
     fontSize: 14,
     marginBottom: 5,
-   },
+  },
   categoryImage: {
     width: 170,
     height: 180,
@@ -118,26 +121,30 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginTop: 10,
+    marginBottom: 10,
+  },
+  taskListContainer: {
+    flex: 1,
+    width: '100%',
   },
   taskItem: {
-    padding: 10,
+    padding: 20,
     backgroundColor: 'white',
     marginBottom: 10,
     borderRadius: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 5,
   },
   taskTitle: {
-    fontSize: 16,
+    fontSize: 20,
   },
-  item: {
-    marginTop: 20,
-    padding: 30,
-    backgroundColor: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
+  icon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  icon: {
+    width: 60,
+    height: 60,
   },
 });
+
