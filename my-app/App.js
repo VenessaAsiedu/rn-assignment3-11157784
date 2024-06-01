@@ -26,7 +26,9 @@ export default function App() {
           </View>
         </View>
       </View>
-
+      <View>
+      <Text style={styles.ongoing}>Ongoing Tasks</Text>
+      </View> 
     </View>
   );
 }
@@ -82,5 +84,10 @@ const styles = StyleSheet.create({
   categoryImage: {
     width: 170,
     height: 180,
+  },
+  ongoing: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
 });
