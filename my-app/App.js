@@ -10,6 +10,17 @@ export default function App() {
       <View style={styles.categoriesContainer}>
         <Text style={styles.categoriesText}>Categories</Text>
       </View>
+      <View style={styles.imageContainer}>
+        <View style={styles.imageWithTextContainer}>
+          <Text style={styles.imageText}>Exercise</Text>
+          <Image source={require('./assets/young woman working online.png')} style={styles.categoryImage} />
+        </View>
+        <View style={styles.imageWithTextContainer}>
+          <Text style={styles.imageText}>Study</Text>
+          <Image source={require('./assets/young woman working at desk.png')} style={styles.categoryImage} />
+        </View>
+      </View>
+
     </View>
   );
 }
@@ -41,5 +52,22 @@ const styles = StyleSheet.create({
   categoriesText: {
     fontSize: 28,
     fontWeight: 'bold',
+  },
+  imageContainer: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  imageWithTextContainer: {
+    alignItems: 'left',
+    marginRight: 10,
+  },
+   imageText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+   },
+  categoryImage: {
+    width: 170,
+    height: 180,
   },
 });
