@@ -4,8 +4,11 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.boldText}>Hello , Devs</Text>
-      <Text style={styles.text}>15 tasks today</Text>
+    <View style={styles.header}>
+    <Text style={styles.boldText}>Hello , Devs</Text>
+      <Image source={require('./assets/Icon.jpg')} style={styles.icon} />
+    </View>
+    <Text style={styles.text}>15 tasks today</Text>
       <Image source={require('./assets/Search.png')} style={styles.image} />
       <View style={styles.categoriesContainer}>
         <Text style={styles.categoriesText}>Categories</Text>
@@ -41,12 +44,19 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     padding: 20,
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
   boldText: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 5,
   },
   text: {
+    fontSize: 16,
     marginBottom: 5,
   },
   image: {
