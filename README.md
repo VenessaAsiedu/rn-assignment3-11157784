@@ -1,1 +1,3 @@
-# rn-assignment3-11157784
+A brief description of each component's usage.
+
+<img src="my-app\assets\Figma.jpg" alt="figma">
